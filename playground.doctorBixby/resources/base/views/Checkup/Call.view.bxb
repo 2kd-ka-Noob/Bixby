@@ -1,0 +1,24 @@
+input-view{
+  match:Call
+
+  message("Should I show you the doctors nearby?")
+  render{
+    form{
+      elements{
+        text-input{
+          id(call)
+          type(Call)
+          label(Yes/No)
+        }
+      }
+      on-submit{
+        goal:Call
+      value:viv.core.FormElement(call) 
+      }
+      submit-button{
+        template(Submit Response)
+      }
+    }
+    
+  }
+}

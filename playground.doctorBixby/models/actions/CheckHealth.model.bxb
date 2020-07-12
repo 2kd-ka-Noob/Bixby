@@ -1,0 +1,19 @@
+action (CheckHealth) {
+  type(Search)
+  description (__DESCRIPTION__)
+  collect {
+    input (temperature) {
+      type (Temperature)
+      min (Required) max (One)
+    }
+    input (health){
+      type (Health)
+      min (Required)max (One)
+    }
+    input (call) {
+      type (Call)
+      min (Required) max (One)
+    }
+  }
+  output (Survey)
+}

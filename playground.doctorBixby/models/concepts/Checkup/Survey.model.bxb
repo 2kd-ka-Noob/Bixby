@@ -1,0 +1,15 @@
+structure (Survey) {
+  description (__DESCRIPTION__)
+  property (temperature) {
+    type (Temperature)
+    min (Required) max (One)
+  }
+  property (health){
+    type(Health)
+    min (Required)max (One)
+  }
+  property (boolcall) {
+    type (BoolCall)
+    min (Required) max (One)
+  }
+}

@@ -1,0 +1,14 @@
+endpoints {
+  action-endpoints {
+    // Uncomment the lines below and enter the information for actions, inputs, and the appropriate local or remote endpoints
+    action-endpoint (Getcount) {
+      accepted-inputs (country)
+      local-endpoint ("getcount.js")
+    }
+
+    action-endpoint (CheckHealth){
+      accepted-inputs (temperature,health,call)
+      local-endpoint ("checkHealth.js") 
+    }
+  }
+}

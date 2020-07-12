@@ -1,0 +1,42 @@
+action (ComposeMessage) {
+  type (Constructor)
+  collect {
+    // phoneNumber and recipientName should be text primitives
+    input (phoneNumber) {
+     type (PhoneNumber)
+     min (Required) max (One)
+    } 
+    input (recipientName) {
+     type (RecipientName)
+     min (Optional) max (One)
+    }
+    // if the message text is not provided as an input, the user will be
+    // prompted to enter the text; if it is provided, the user will be
+    // asked to confirm sending the message
+    input (messageText) {
+      type (MessageText)
+      min (Optional) max (One)
+    }
+
+    computed-input (message) {
+      type (message.MessageInfo)
+      min (Required) max (One)
+      compute {
+        intent {
+          goal: message.ComposeMessage
+          // if phoneNumber and RecipientName don't extend message.PhoneNumber
+          // and message.RecipientName, use cast() here
+          value: $expr(phoneNumber.cast('message.PhoneNumber'))
+          value: $expr(recipientName.cast('message.RecipientName'))
+          value: $expr(messageText)
+          
+        }
+      }
+    }
+  }
+  output (MessageInfo) {
+    evaluate {
+      $expr(message)
+    }
+  }
+}

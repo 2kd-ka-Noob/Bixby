@@ -1,0 +1,7 @@
+dialog (Action) {
+  match: Res(res){
+    from-output: Getcount(action)
+  }
+  
+  template("Coronavirus count  of #{value(action.country)} is #{value(res.Confirmed)}")
+}

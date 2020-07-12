@@ -1,0 +1,4 @@
+structure (MessageInfo) {
+  description (__DESCRIPTION__)
+  extends (message.MessageInfo)
+}

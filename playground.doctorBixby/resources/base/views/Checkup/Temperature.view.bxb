@@ -1,0 +1,23 @@
+input-view{
+  match: Temperature
+  message('Enter your body temperature in Farenheit')
+  render{
+    form{
+      elements{
+        number-input{
+          id(temperature)
+          type(Temperature)
+          label(Your Body Temperature)
+        }
+      }
+      on-submit{
+        goal:Temperature
+      value:viv.core.FormElement(temperature) 
+      }
+      submit-button{
+        template(Submit Temperature)
+      }
+    }
+    
+  }
+}

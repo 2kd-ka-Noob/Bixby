@@ -1,0 +1,24 @@
+input-view{
+  match:Health
+
+  message("Are you experiencing any problem related to breathing?")
+  render{
+    form{
+      elements{
+        checkbox{
+          id(health)
+          type(Health)
+          primary-text(Say yes if you are not feeling well)
+        }
+      }
+      on-submit{
+        goal:Health
+      value:viv.core.FormElement(health) 
+      }
+      submit-button{
+        template(Submit Response)
+      }
+    }
+    
+  }
+}

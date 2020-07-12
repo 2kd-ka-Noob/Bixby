@@ -1,0 +1,3 @@
+text (RecipientName) {
+  description (__DESCRIPTION__)
+}

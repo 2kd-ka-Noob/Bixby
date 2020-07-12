@@ -1,0 +1,19 @@
+dialog (Result) {
+  match:Survey(surv)
+  if (surv.temperature<99&&surv.health==false){
+    if(surv.boolcall==false){
+      template (Yeeee You are fit and fine)}
+    else{
+      template (You seem fit,but prevention is better than Cure!! Calling the Doctor)
+    }
+  }
+  else{
+    if(surv.boolcall==false){
+      template (You have some symtomps of coronavirus I advice you to contact the doctor)}
+    else{
+      template (Okay Calling the doctor)
+
+    }
+    
+  }
+}

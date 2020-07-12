@@ -1,0 +1,7 @@
+structure (Res) {
+  description (__DESCRIPTION__)
+  property (Confirmed) {
+    type (Count)
+    min (Required) max (One)
+  }
+}

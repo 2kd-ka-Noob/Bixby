@@ -1,0 +1,110 @@
+result-view{
+  match:Survey(surv){
+    from-output:CheckHealth(ch)
+  }
+  message("Showing you the results")
+  render{
+    if (surv.temperature<99&&surv.health==false){
+      if (surv.boolcall==false){
+        layout {
+          section {
+            content {
+              single-line {
+                text {
+                  value ("(◕‿◕)")
+                  style (Title_XXL)
+                }
+
+              }
+            }
+          }
+        }
+      }
+      else{
+        layout{
+          section{
+            content{
+              cell-card{
+                slot2{
+                  content {
+                    order (PrimarySecondary)
+                    primary {
+                      template ("Dr Batra")
+                    }
+                    secondary {
+                      template ("Tap to know the details")
+                    }
+                  }
+                }
+                on-click{
+                  intent {
+                    goal: SendMessage
+                    route: ComposeMessage
+                    value: PhoneNumber (1-555-666-1212)
+                    // optional
+                    value: RecipientName (Dr. Batra)
+                    
+                    value: MessageText ("I want get a corona checkup. I have some symptoms.My body temperature is")
+                  }
+                }
+              }
+            }
+          }
+        }
+
+      }
+    }
+    else{
+      if (surv.boolcall==false){
+        layout {
+          section {
+            content {
+              single-line {
+                text {
+                  value ("(◕︿◕)")
+                  style (Title_XXL)
+                }
+              }
+              
+              paragraph{
+                style(Detail_L)
+                value(If you want to know current coronanavirus count try Hi Bixby show India coronavirus status)
+              }
+            }  
+          }
+        }
+      }
+      else{
+        layout{
+          section{
+            content{
+              cell-card{
+                slot2{
+                  content {
+                    order (PrimarySecondary)
+                    primary {
+                      template ("Dr Batra")
+                    }
+                    secondary {
+                      template ("Tap to know the details")
+                    }
+                  }
+                }
+                on-click{
+                  intent {
+                    goal: SendMessage
+                    route: ComposeMessage
+                    value: PhoneNumber (1-555-666-1212)
+                    // optional
+                    value: RecipientName ("Dr. Batra")
+                    value: MessageText ("I want get a corona checkup. I have some symptoms.My body temperature is #{value(ch.temperature)}.")
+                  }
+                }
+              }              
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+action (Getcount) {
+  type(Search)
+  description (__DESCRIPTION__)
+  collect {
+    input (country) {
+      type (Country)
+      min (Required) max (One)
+    }
+  }
+  output (Res)
+}

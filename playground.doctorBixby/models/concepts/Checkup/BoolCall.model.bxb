@@ -1,0 +1,3 @@
+boolean (BoolCall) {
+  description (__DESCRIPTION__)
+}
